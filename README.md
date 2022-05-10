@@ -14,6 +14,8 @@ If you’re interested in the technologies below, here are some links.
   [repos](https://github.com/search?l=TypeScript&q=org%3Aguardian&type=Repositories)
   & [`code`](https://cs.github.com/?q=org%3Aguardian+language%3ATypeScript)
 
+## Contributing
 
+This repo does not contain code, beyond some small automation scripts.
 
-<!-- [Deno code](https://cs.github.com/?scopeName=All+repos&scope=&q=org%3Aguardian+%2F%5Cbdeno%5Cb%2F+language%3ATypeScript%2CJavaScript) -->
+To get started, install Deno with `brew install deno` and clone this repo.
