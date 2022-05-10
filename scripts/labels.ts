@@ -32,6 +32,8 @@ for (const label of labels) {
   const [prefix] = label.name.split(": ");
 
   if (!isPrefix(prefix)) {
+    console.warn("invalid prefix: ", prefix);
+
     const {
       data: { name, color },
     } = await octokit.rest.issues.updateLabel({
@@ -41,21 +43,27 @@ for (const label of labels) {
       new_name: `fixme: ${label.name}`,
       color: prefixes["fixme"].slice(1),
     });
-    console.log(name, color);
+
+    console.info("new name & colour: ", [name, color]);
+
     continue;
   }
 
-  const expectedColour = prefixes[prefix];
+  const expectedColour = prefixes[prefix].slice(1);
 
-  if (expectedColour !== `#${label.color}`) {
+  if (expectedColour !== label.color) {
     const {
       data: { color },
     } = await octokit.rest.issues.updateLabel({
       owner: "guardian",
       repo: "playground",
       name: label.name,
-      color: expectedColour.slice(1),
+      color: expectedColour,
     });
-    console.log("new colour:", color);
+
+    console.info(
+      `fixed colour for ${label.name}: `,
+      `#${label.color} -> ${color}`,
+    );
   }
 }
