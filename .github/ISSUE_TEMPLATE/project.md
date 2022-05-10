@@ -7,8 +7,8 @@ assignees: ''
 
 ---
 
-> repo: https://github.com/guardian/…
-> url: https://…
+> repo: https://github.com/guardian/…\
+> url: https://…\
 > people: @…
 
 ## What is this project about
