@@ -21,7 +21,7 @@ jobs:
       - name: Check and update labels 
         run: |
           deno run --no-check \
-          --allow-read --allow-net:api.github.com --allow-env="GITHUB_TOKEN" \
+          --allow-read --allow-net=api.github.com --allow-env \
           scripts/labels.ts
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
