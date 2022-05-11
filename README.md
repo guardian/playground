@@ -10,11 +10,12 @@ If you’re interested in the technologies below, here are some links.
 
 - Scala:
   [repos](https://github.com/search?l=Scala&q=org%3Aguardian&type=Repositories),
-  [people](https://github.com/orgs/guardian/teams/scala)
 - TypeScript:
   [repos](https://github.com/search?l=TypeScript&q=org%3Aguardian&type=Repositories)
-  & [`code`](https://cs.github.com/?q=org%3Aguardian+language%3ATypeScript) &
-  [**people**](https://github.com/orgs/guardian/teams/typescript)
+  & [`code`](https://cs.github.com/?q=org%3Aguardian+language%3ATypeScript)
+
+To see interest groups, it’s
+[Specific Interests #11](https://github.com/guardian/playground/issues/11)
 
 ## Contributing
 
