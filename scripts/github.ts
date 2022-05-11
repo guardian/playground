@@ -15,6 +15,11 @@ type OctokitWithRest = {
         arg: RestEndpointMethodTypes["issues"][Method]["parameters"],
       ) => Promise<RestEndpointMethodTypes["issues"][Method]["response"]>;
     };
+    teams: {
+      [Method in keyof RestEndpointMethodTypes["teams"]]: (
+        arg: RestEndpointMethodTypes["teams"][Method]["parameters"],
+      ) => Promise<RestEndpointMethodTypes["teams"][Method]["response"]>;
+    };
   };
 };
 

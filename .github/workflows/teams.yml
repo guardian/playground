@@ -1,0 +1,28 @@
+name: Interests Teams
+
+on:
+  schedule:
+    - cron:  '0 13 * * MON-FRI'
+
+jobs:
+  check-teams:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Setup Deno
+        uses: denolib/setup-deno@v2
+        with:
+          deno-version: v1.x
+
+      - name: Check interest teams 
+        run: |
+          deno run --no-check \
+          --allow-read --allow-net=api.github.com --allow-env \
+          scripts/teams.ts
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Check formatting
+        run: deno fmt --check
