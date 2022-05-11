@@ -24,4 +24,9 @@ type OctokitWithRest = {
 // @ts-expect-error -- Octokit’s own types are not as good as ours
 const octokit = new Octokit({ auth: token }) as OctokitWithRest;
 
-export { octokit };
+const defaultParams = {
+  owner: "guardian",
+  repo: "playground",
+} as const;
+
+export { defaultParams, octokit };

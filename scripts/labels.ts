@@ -1,4 +1,4 @@
-import { octokit } from "./github.ts";
+import { defaultParams, octokit } from "./github.ts";
 
 import {
   culture,
@@ -37,8 +37,7 @@ for (const label of labels) {
     const {
       data: { name, color },
     } = await octokit.rest.issues.updateLabel({
-      owner: "guardian",
-      repo: "playground",
+      ...defaultParams,
       name: label.name,
       new_name: `fixme: ${label.name}`,
       color: prefixes["fixme"].slice(1),
@@ -55,8 +54,7 @@ for (const label of labels) {
     const {
       data: { color },
     } = await octokit.rest.issues.updateLabel({
-      owner: "guardian",
-      repo: "playground",
+      ...defaultParams,
       name: label.name,
       color: expectedColour,
     });
