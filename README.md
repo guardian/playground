@@ -2,6 +2,9 @@
 
 Come to the playground and peruse the sand castles.
 
+Not sure about the name?
+[Propose a new one](https://github.com/guardian/playground/discussions/13)
+
 ## Technologies
 
 If you’re interested in the technologies below, here are some links.
