@@ -40,16 +40,19 @@ for (const label of labels) {
   if (!isPrefix(prefix)) {
     console.warn("invalid prefix: ", prefix);
 
-    const new_name = `${remaps[prefix]}: ${rest.join(" ")}` ??
-      `fixme: ${label.name}`;
+    const remapped = remaps[prefix];
 
     const {
       data: { name, color },
     } = await octokit.rest.issues.updateLabel({
       ...defaultParams,
       name: label.name,
-      new_name,
-      color: remaps[prefix] ? undefined : prefixes["fixme"].slice(1),
+      new_name: remapped
+        ? `${remapped}: ${rest.join(" ")}`
+        : `fixme: ${label.name}`,
+      color: remapped
+        ? prefixes[remapped].slice(1)
+        : prefixes["fixme"].slice(1),
     });
 
     console.info("new name & colour: ", [name, color]);
