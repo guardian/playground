@@ -25,6 +25,3 @@ jobs:
           scripts/labels.ts
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Check formatting
-        run: deno fmt --check
