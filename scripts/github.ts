@@ -10,15 +10,13 @@ if (!token) throw new Error("Missing GITHUB_TOKEN");
 
 type OctokitWithRest = {
   rest: {
-    issues: {
-      [Method in keyof RestEndpointMethodTypes["issues"]]: (
-        arg: RestEndpointMethodTypes["issues"][Method]["parameters"],
-      ) => Promise<RestEndpointMethodTypes["issues"][Method]["response"]>;
-    };
-    teams: {
-      [Method in keyof RestEndpointMethodTypes["teams"]]: (
-        arg: RestEndpointMethodTypes["teams"][Method]["parameters"],
-      ) => Promise<RestEndpointMethodTypes["teams"][Method]["response"]>;
+    [Section in keyof RestEndpointMethodTypes]: {
+      [Method in keyof RestEndpointMethodTypes[Section]]:
+        RestEndpointMethodTypes[Section][Method] extends
+          { parameters: infer Parameters; response: infer Response } ? (
+          arg: Parameters,
+        ) => Promise<Response>
+          : never;
     };
   };
 };
