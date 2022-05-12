@@ -1,6 +1,7 @@
 import { config } from "https://deno.land/x/dotenv@v3.2.0/mod.ts";
 import { Octokit } from "https://cdn.skypack.dev/octokit";
 import type { RestEndpointMethodTypes } from "https://cdn.skypack.dev/@octokit/plugin-rest-endpoint-methods?dts";
+import type { Endpoints } from "https://cdn.skypack.dev/@octokit/types?dts";
 
 console.log(config({ safe: true, export: true }));
 
@@ -19,6 +20,10 @@ type OctokitWithRest = {
           : never;
     };
   };
+  request: <Url extends keyof Endpoints>(
+    url: Url,
+    arg: Endpoints[Url]["parameters"],
+  ) => Promise<Endpoints[Url]["parameters"]>;
 };
 
 /**
