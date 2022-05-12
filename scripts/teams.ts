@@ -16,7 +16,7 @@ type Team = typeof teams[number];
  *
  * [@guardian/interests]: https://github.com/orgs/guardian/teams/interests
  */
-const extra: Array<Pick<Team, "name" | "html_url">> = [
+const extras: Array<Pick<Team, "name" | "html_url">> = [
   "aws",
   "css",
   "fastly",
@@ -36,7 +36,10 @@ const extra: Array<Pick<Team, "name" | "html_url">> = [
   });
 });
 
-const all_teams = extra.concat(teams).sort();
+const no_duplicates = (extra: typeof extras[number]) =>
+  !teams.some((team) => team.html_url === extra.html_url);
+
+const all_teams = extras.filter(no_duplicates).concat(teams).sort();
 
 const list: string = all_teams.map((child) => {
   return `- [${child.name}](${child.html_url})`;
