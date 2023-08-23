@@ -1,3 +1,5 @@
+> Archiving this repository in line with [REPOSITORY-05 best practice](https://github.com/guardian/recommendations/blob/main/best-practices.md#repository)
+
 # The Guardian Playground
 
 Come to the playground and peruse the sand castles.
